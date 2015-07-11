@@ -18,13 +18,16 @@ import javax.mail.search.FlagTerm;
 import net.borxa.mailcheck.exception.MailCheckException;
 
 /**
+ * <p>MailCheckServiceImpl implements MailCheckService interface</p>
  *
  * @author borxa.varela
+ * @version $Id: $Id
  */
 public class MailCheckServiceImpl implements MailCheckService {
     
     private static final Logger LOG = Logger.getLogger("MailCheckServiceImpl");
 
+    /** {@inheritDoc} */
     @Override
     public Store getStore(String host, String port, String user, String password, String type, boolean tls)
             throws MailCheckException {
@@ -51,6 +54,7 @@ public class MailCheckServiceImpl implements MailCheckService {
         return store;
     }
 
+    /** {@inheritDoc} */
     @Override
     public Folder getFolder(Store store, String folderName, int permissions)
             throws MailCheckException {
@@ -68,6 +72,7 @@ public class MailCheckServiceImpl implements MailCheckService {
         return folder;
     }
 
+    /** {@inheritDoc} */
     @Override
     public List<Message> searchMessages(Folder folder, FlagTerm flagTerm) throws MailCheckException {
         
@@ -82,6 +87,7 @@ public class MailCheckServiceImpl implements MailCheckService {
         }
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean closeConnection(Store store, Folder folder, boolean expunged) {
 

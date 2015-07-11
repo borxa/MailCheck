@@ -13,16 +13,22 @@ import org.openide.awt.StatusDisplayer;
 import org.openide.util.NbPreferences;
 
 /**
+ * <p>DetailsJPanel class.</p>
  *
  * @author borxa
+ * @version $Id: $Id
  */
 public class DetailsJPanel extends javax.swing.JPanel {
+    
+    private static final long serialVersionUID = 1L;
 
     private final Message message;
     private final long messageId;
 
     /**
      * Creates new form DetailsJPanel
+     *
+     * @param message a {@link javax.mail.Message} object.
      */
     public DetailsJPanel(Message message) {
         this.message = message;

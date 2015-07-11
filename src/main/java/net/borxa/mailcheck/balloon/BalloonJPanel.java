@@ -10,8 +10,10 @@ import org.openide.awt.StatusDisplayer;
 import org.openide.util.NbPreferences;
 
 /**
+ * <p>BalloonJPanel class.</p>
  *
  * @author borxa
+ * @version $Id: $Id
  */
 public class BalloonJPanel extends javax.swing.JPanel {
 

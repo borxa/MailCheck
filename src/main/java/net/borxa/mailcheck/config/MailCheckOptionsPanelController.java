@@ -1,6 +1,10 @@
+
 /**
  * Creative Commons License: Attribution-ShareAlike 4.0 International
  * https://creativecommons.org/licenses/by-sa/4.0/legalcode
+ *
+ * @author borxa
+ * @version $Id: $Id
  */
 package net.borxa.mailcheck.config;
 
@@ -24,11 +28,17 @@ public final class MailCheckOptionsPanelController extends OptionsPanelControlle
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private boolean changed;
 
+    /**
+     * <p>update.</p>
+     */
     public void update() {
         getPanel().load();
         changed = false;
     }
 
+    /**
+     * <p>applyChanges.</p>
+     */
     public void applyChanges() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -39,30 +49,51 @@ public final class MailCheckOptionsPanelController extends OptionsPanelControlle
         });
     }
 
+    /**
+     * <p>cancel.</p>
+     */
     public void cancel() {
         // need not do anything special, if no changes have been persisted yet
     }
 
+    /**
+     * <p>isValid.</p>
+     *
+     * @return a boolean.
+     */
     public boolean isValid() {
         return getPanel().valid();
     }
 
+    /**
+     * <p>isChanged.</p>
+     *
+     * @return a boolean.
+     */
     public boolean isChanged() {
         return changed;
     }
 
+    /**
+     * <p>getHelpCtx.</p>
+     *
+     * @return a {@link org.openide.util.HelpCtx} object.
+     */
     public HelpCtx getHelpCtx() {
         return null; // new HelpCtx("...ID") if you have a help set
     }
 
+    /** {@inheritDoc} */
     public JComponent getComponent(Lookup masterLookup) {
         return getPanel();
     }
 
+    /** {@inheritDoc} */
     public void addPropertyChangeListener(PropertyChangeListener l) {
         pcs.addPropertyChangeListener(l);
     }
 
+    /** {@inheritDoc} */
     public void removePropertyChangeListener(PropertyChangeListener l) {
         pcs.removePropertyChangeListener(l);
     }

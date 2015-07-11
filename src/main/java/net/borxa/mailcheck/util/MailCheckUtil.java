@@ -38,8 +38,10 @@ import org.openide.util.ImageUtilities;
 import org.openide.util.NbPreferences;
 
 /**
+ * <p>MailCheckUtil is a set of utils for encapsulate common tasks</p>
  *
  * @author borxa.varela
+ * @version $Id: $Id
  */
 public class MailCheckUtil {
 
@@ -48,6 +50,13 @@ public class MailCheckUtil {
     private static final MailCheckService service = MailCheckServiceFactory.getInstance();
     private static final Logger LOG = Logger.getLogger("MailCheckUtil");
 
+    /**
+     * <p>Gets the string content of message, first try for txt version and if
+     * no result getted then try with html version</p>
+     *
+     * @param message a {@link javax.mail.Message} object.
+     * @return a {@link java.lang.String} object with txt or html content
+     */
     public static String getContentMessage(Message message) {
 
         String content = new String();
@@ -74,6 +83,15 @@ public class MailCheckUtil {
         return content;
     }
 
+    /**
+     * <p>Check for new unread messages in INBOX folder and make notifications
+     * for them</p>
+     *
+     * @param host an IMAPs hostname
+     * @param user an user in IMAPs server
+     * @param password password for user in IMAPs server
+     * @throws net.borxa.mailcheck.exception.MailCheckException if any.
+     */
     public static void notifyNewUnreadMessages(
             final String host, final String user, final String password)
             throws MailCheckException {
@@ -92,7 +110,7 @@ public class MailCheckUtil {
             FlagTerm fterm = new FlagTerm(flags, false);
             List<Message>messages = service.searchMessages(folder, fterm);
 
-            Set<Long> notifiesToRemove = new HashSet(MailCheck.getNotificationHistory().keySet());
+            Set<Long> notifiesToRemove = new HashSet<>(MailCheck.getNotificationHistory().keySet());
             for (Message message : messages) {
                 long messageId = getMessageId(message);
                 if (!MailCheck.getNotificationHistory().containsKey(messageId)) {
@@ -115,6 +133,16 @@ public class MailCheckUtil {
         }
     }
 
+    /**
+     * <p>Copy message to Trash folder and remove it in INBOX folder.</p>
+     *
+     * @param messageId a long.
+     * @param host an IMAPs hostname
+     * @param user an user in IMAPs server
+     * @param password password for user in IMAPs server
+     * @return true or false if all operations in remove are complete
+     * @throws net.borxa.mailcheck.exception.MailCheckException if any.
+     */
     public static boolean removeMessage(
             long messageId, final String host, final String user, final String password) throws MailCheckException {
 
@@ -159,6 +187,12 @@ public class MailCheckUtil {
         return removed;
     }
     
+    /**
+     * <p>Get messageId for reference a message</p>
+     *
+     * @param message a {@link javax.mail.Message} object.
+     * @return a messageId number
+     */
     public static long getMessageId(Message message) {
         
         long messageId;

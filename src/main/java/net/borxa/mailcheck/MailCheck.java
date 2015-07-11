@@ -4,6 +4,7 @@
  */
 package net.borxa.mailcheck;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,18 +12,21 @@ import java.util.MissingResourceException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.openide.modules.ModuleInstall;
-import org.openide.util.RequestProcessor;
-import org.openide.windows.OnShowing;
 import net.borxa.mailcheck.exception.MailCheckException;
 import net.borxa.mailcheck.util.MailCheckUtil;
 import org.openide.awt.Notification;
 import org.openide.awt.StatusDisplayer;
+import org.openide.modules.ModuleInstall;
 import org.openide.util.NbPreferences;
+import org.openide.util.RequestProcessor;
+import org.openide.windows.OnShowing;
 
 /**
+ * <p>MailCheck checks for new unread messages in INBOX folder of IMAPs 
+ * server host account and notify them in Netbeans notifications window.</p>
  *
  * @author borxa.varela
+ * @version $Id: $Id
  */
 @OnShowing
 public class MailCheck extends ModuleInstall implements Runnable {
@@ -31,8 +35,10 @@ public class MailCheck extends ModuleInstall implements Runnable {
     private static final RequestProcessor RP = new RequestProcessor(MailCheck.class);
     private static final Logger LOG = Logger.getLogger("MailCheck");
     
-    private static final Map<Long, Notification> notifications = new HashMap();
+    private static final Map<Long, Notification> notifications = new HashMap<>();
+    private static final long serialVersionUID = 1L;
 
+    /** {@inheritDoc} */
     @Override
     public void run() {
 
@@ -75,8 +81,14 @@ public class MailCheck extends ModuleInstall implements Runnable {
         }
     }
     
+    /**
+     * <p>Gets a list of all pairs of messageId and notification done</p>
+     *
+     * @return a {@link java.util.Map} object with messageId and his email 
+     * notification asociated
+     */
     public static Map<Long, Notification> getNotificationHistory() {
         
-        return notifications;
+        return Collections.unmodifiableMap(notifications);
     }
 }
