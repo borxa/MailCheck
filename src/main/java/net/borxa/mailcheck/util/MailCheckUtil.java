@@ -43,6 +43,8 @@ import org.openide.util.NbPreferences;
  */
 public class MailCheckUtil {
 
+    private static final String IMAPs = "imaps";
+    private static final String IMAPs_PORT = "993";
     private static final MailCheckService service = MailCheckServiceFactory.getInstance();
     private static final Logger LOG = Logger.getLogger("MailCheckUtil");
 
@@ -83,7 +85,7 @@ public class MailCheckUtil {
             
             String inboxFolderName = NbPreferences.forModule(MailCheck.class).get("mail_inbox_folder", "INBOX");
 
-            store = service.getStore(host, MailCheckService.IMAPs_PORT, user, password, MailCheckService.IMAPs, true);
+            store = service.getStore(host, IMAPs_PORT, user, password, IMAPs, true);
             folder = service.getFolder(store, inboxFolderName, Folder.READ_ONLY);
 
             Flags flags = new Flags(Flags.Flag.SEEN);
@@ -127,7 +129,7 @@ public class MailCheckUtil {
             
             String inboxFolderName = NbPreferences.forModule(MailCheck.class).get("mail_inbox_folder", "INBOX");
 
-            store = service.getStore(host, MailCheckService.IMAPs_PORT, user, password, MailCheckService.IMAPs, true);
+            store = service.getStore(host, IMAPs_PORT, user, password, IMAPs, true);
             folder = service.getFolder(store, inboxFolderName, Folder.READ_WRITE);
             
             UIDFolder uf = (UIDFolder)folder;
@@ -155,6 +157,21 @@ public class MailCheckUtil {
         }
 
         return removed;
+    }
+    
+    public static long getMessageId(Message message) {
+        
+        long messageId;
+        
+        try {
+            UIDFolder uf = (UIDFolder)message.getFolder();
+            
+            messageId = uf.getUID(message);
+        } catch (MessagingException ex) {
+            messageId = -1;
+        }
+    
+        return messageId;
     }
 
     private static String notifyText(Message message) throws MessagingException, UnsupportedEncodingException {
@@ -211,14 +228,6 @@ public class MailCheckUtil {
         
         return notification;
 
-    }
-
-    private static long getMessageId(Message message) throws MessagingException {
-        
-        UIDFolder uf = (UIDFolder)message.getFolder();
-        
-        return uf.getUID(message);
-    
     }
     
     private static String inputStreamtoStream(InputStream in)

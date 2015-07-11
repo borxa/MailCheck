@@ -5,20 +5,16 @@
 package net.borxa.mailcheck.config;
 
 import java.io.File;
-import javax.swing.JFileChooser;
 import net.borxa.mailcheck.MailCheck;
 import org.openide.util.NbPreferences;
 
 final class MailCheckPanel extends javax.swing.JPanel {
 
-    private final MailCheckOptionsPanelController controller;
     private int delay;
 
-    MailCheckPanel(MailCheckOptionsPanelController controller) {
+    MailCheckPanel() {
         this.delay = Integer.parseInt(org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheck.delay-default"));
-        this.controller = controller;
         initComponents();
-        // TODO listen to changes in form fields and call controller.changed()
     }
 
     /**
@@ -172,15 +168,14 @@ final class MailCheckPanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         int returnVal = fileChooser.showOpenDialog(this);
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
+        if (returnVal == javax.swing.JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
-
             jTextField4.setText(file.getAbsolutePath());
-
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
+        
         String number = jTextField3.getText();
         if (!number.isEmpty()) {
             if (number.matches("\\d+")) {

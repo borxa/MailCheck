@@ -62,7 +62,8 @@ public class BalloonJPanel extends javax.swing.JPanel {
             String mailPath = NbPreferences.forModule(MailCheck.class).get("mail_path", "");
             new ProcessBuilder(mailPath).start();
         } catch (IOException ex) {
-            StatusDisplayer.getDefault().setStatusText(ex.getMessage());
+            StatusDisplayer.getDefault().setStatusText(
+                    new StringBuilder(evt.getActionCommand()).append(ex.getMessage()).toString());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

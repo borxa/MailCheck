@@ -8,7 +8,7 @@
     
     <name>MailCheck</name>
     <description>Check IMAP Mail Secure Server for new unread messages and show it on notifications window</description>
-    <url>https://github.com/borxa/netbeans-mailcheck</url>
+    <url>https://github.com/borxa/MailCheck</url>
     <inceptionYear>2015</inceptionYear>
     
     <developers>
@@ -30,8 +30,8 @@
     
     <scm>
         <connection>scm:git:git://github.com/borxa/MailCheck.git</connection>
-        <developerConnection>scm:git:git@github.com:borxa/EasyPmd.git</developerConnection>
-        <url>https://github.com/borxa/netbeans-mailcheck</url>
+        <developerConnection>scm:git:git@github.com:borxa/MailCheck.git</developerConnection>
+        <url>https://github.com/borxa/MailCheck</url>
     </scm>
     
     <build>
@@ -41,6 +41,7 @@
                 <artifactId>nbm-maven-plugin</artifactId>
                 <version>3.13</version>
                 <extensions>true</extensions>
+                <configuration></configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -59,8 +60,51 @@
                     <useDefaultManifestFile>true</useDefaultManifestFile>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                            <goal>cpd-check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>net/borxa/mailcheck/config/MailCheckPanel.java</exclude>
+                        <exclude>net/borxa/mailcheck/details/DetailsJPanel.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.5</version>
+                <configuration>
+                    <linkXref>true</linkXref>
+                    <sourceEncoding>utf-8</sourceEncoding>
+                    <minimumTokens>100</minimumTokens>
+                    <targetJdk>1.7</targetJdk>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
+        </plugins>
+    </reporting>
     <repositories>
         <repository>
             <id>netbeans</id>
@@ -117,6 +161,13 @@
             <artifactId>org-openide-util-lookup</artifactId>
             <version>RELEASE80</version>
         </dependency>
+        <!--
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>3.5</version>
+        </dependency>
+        -->
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

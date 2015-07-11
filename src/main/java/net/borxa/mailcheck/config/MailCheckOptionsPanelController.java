@@ -69,7 +69,7 @@ public final class MailCheckOptionsPanelController extends OptionsPanelControlle
 
     private MailCheckPanel getPanel() {
         if (panel == null) {
-            panel = new MailCheckPanel(this);
+            panel = new MailCheckPanel();
         }
         return panel;
     }

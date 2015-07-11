@@ -6,8 +6,6 @@ package net.borxa.mailcheck.details;
 
 import java.io.IOException;
 import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.UIDFolder;
 import net.borxa.mailcheck.MailCheck;
 import net.borxa.mailcheck.exception.MailCheckException;
 import net.borxa.mailcheck.util.MailCheckUtil;
@@ -20,21 +18,15 @@ import org.openide.util.NbPreferences;
  */
 public class DetailsJPanel extends javax.swing.JPanel {
 
-    private Message message;
-    private long messageId;
+    private final Message message;
+    private final long messageId;
 
     /**
      * Creates new form DetailsJPanel
      */
     public DetailsJPanel(Message message) {
         this.message = message;
-        UIDFolder uf = (UIDFolder) message.getFolder();
-        this.messageId = 0;
-        try {
-            this.messageId = uf.getUID(message);
-        } catch (MessagingException ex) {
-
-        }
+        this.messageId = MailCheckUtil.getMessageId(message);
         initComponents();
     }
 
@@ -100,6 +92,7 @@ public class DetailsJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         try {
             String mailPath = NbPreferences.forModule(MailCheck.class).get("mail_path", "");
             new ProcessBuilder(mailPath).start();

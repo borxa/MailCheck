@@ -7,13 +7,13 @@ package net.borxa.mailcheck.service;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Logger;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
-import javax.mail.UIDFolder;
 import javax.mail.search.FlagTerm;
 import net.borxa.mailcheck.exception.MailCheckException;
 
@@ -22,6 +22,8 @@ import net.borxa.mailcheck.exception.MailCheckException;
  * @author borxa.varela
  */
 public class MailCheckServiceImpl implements MailCheckService {
+    
+    private static final Logger LOG = Logger.getLogger("MailCheckServiceImpl");
 
     @Override
     public Store getStore(String host, String port, String user, String password, String type, boolean tls)
