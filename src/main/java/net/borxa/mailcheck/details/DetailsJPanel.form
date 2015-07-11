@@ -52,7 +52,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="net/borxa/mailcheck/details/Bundle.properties" key="DetailsJPanel.jButton1.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="net/borxa/mailcheck/Bundle.properties" key="DetailsJPanel.jButton1.text" replaceFormat="org.openide.util.NbBundle.getMessage(MailCheck.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
       <Events>
@@ -79,7 +79,7 @@
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="net/borxa/mailcheck/details/Bundle.properties" key="DetailsJPanel.jButton2.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+          <ResourceString bundle="net/borxa/mailcheck/Bundle.properties" key="DetailsJPanel.jButton2.text" replaceFormat="org.openide.util.NbBundle.getMessage(MailCheck.class, &quot;{key}&quot;)"/>
         </Property>
       </Properties>
       <Events>

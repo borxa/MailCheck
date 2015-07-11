@@ -54,7 +54,7 @@ public class DetailsJPanel extends javax.swing.JPanel {
 
         setOpaque(false);
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(DetailsJPanel.class, "DetailsJPanel.jButton1.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(MailCheck.class, "DetailsJPanel.jButton1.text")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -65,7 +65,7 @@ public class DetailsJPanel extends javax.swing.JPanel {
         jTextPane1.setText(MailCheckUtil.getContentMessage(message));
         jScrollPane2.setViewportView(jTextPane1);
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(DetailsJPanel.class, "DetailsJPanel.jButton2.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton2, org.openide.util.NbBundle.getMessage(MailCheck.class, "DetailsJPanel.jButton2.text")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

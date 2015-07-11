@@ -199,22 +199,10 @@ public class MailCheckUtil {
 
     private static Notification newMailNotification(Message message) throws MessagingException, UnsupportedEncodingException {
 
-        final ImageIcon icon = ImageUtilities.loadImageIcon("resources/icon.png", false);
-        final String mailPath = NbPreferences.forModule(MailCheck.class).get("mail_path", "");
-
-        String title = notifyText(message);
-        ActionListener acl = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    Runtime.getRuntime().exec(mailPath);
-                } catch (Exception ex) {
-                    StatusDisplayer.getDefault().setStatusText(ex.getMessage());
-                }
-            }
-        };
-        Priority priority = getMessagePriority(message);
-        NotificationDisplayer.Category category = NotificationDisplayer.Category.INFO;
+        final String title = notifyText(message);
+        final ImageIcon icon = ImageUtilities.loadImageIcon("icon.png", false);
+        final Priority priority = getMessagePriority(message);
+        final NotificationDisplayer.Category category = NotificationDisplayer.Category.INFO;
 
         Notification notification = NotificationDisplayer.getDefault().notify(
                 title,

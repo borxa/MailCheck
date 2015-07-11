@@ -68,7 +68,8 @@ public class MailCheck extends ModuleInstall implements Runnable {
             StatusDisplayer.getDefault().setStatusText(new StringBuilder("MailCheck: ")
                     .append(e.getMessage()).append(". New run in 5 minutes.").toString());
             LOG.log(Level.INFO, "{0}. New run in 5 minutes.", e.getMessage());
-            RP.schedule(this, 300, TimeUnit.SECONDS);
+            RP.schedule(this, 20, TimeUnit.SECONDS);
+            e.printStackTrace();
         } finally {
             Thread.currentThread().setContextClassLoader(orig);
         }

@@ -47,17 +47,17 @@ final class MailCheckPanel extends javax.swing.JPanel {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
 
-        fileChooser.setDialogTitle(org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.fileChooser.dialogTitle")); // NOI18N
+        fileChooser.setDialogTitle(org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.fileChooser.dialogTitle")); // NOI18N
 
         setName("Options"); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jLabel1.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.jLabel1.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jLabel2.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel2, org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.jLabel2.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jLabel3.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel3, org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.jLabel3.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jLabel4.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel4, org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.jLabel4.text")); // NOI18N
 
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -66,25 +66,24 @@ final class MailCheckPanel extends javax.swing.JPanel {
             }
         });
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jLabel5.text")); // NOI18N
-        jLabel5.setToolTipText(org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jLabel5.toolTipText")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel5, org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.jLabel5.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jButton1.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jButton1, org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.jButton1.text")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/mailcheck.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mailcheck.png"))); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jLabel7.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel7, org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.jLabel7.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jLabel8.text")); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel8, org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.jLabel8.text")); // NOI18N
 
-        jTextField5.setText(org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jTextField5.text")); // NOI18N
+        jTextField5.setText(org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.jTextField5.text")); // NOI18N
 
-        jTextField6.setText(org.openide.util.NbBundle.getMessage(MailCheckPanel.class, "MailCheckPanel.jTextField6.text")); // NOI18N
+        jTextField6.setText(org.openide.util.NbBundle.getMessage(MailCheck.class, "MailCheckPanel.jTextField6.text")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
