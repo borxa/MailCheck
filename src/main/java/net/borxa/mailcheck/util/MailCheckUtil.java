@@ -4,8 +4,6 @@
  */
 package net.borxa.mailcheck.util;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,7 +34,6 @@ import net.borxa.mailcheck.service.MailCheckServiceFactory;
 import org.openide.awt.Notification;
 import org.openide.awt.NotificationDisplayer;
 import org.openide.awt.NotificationDisplayer.Priority;
-import org.openide.awt.StatusDisplayer;
 import org.openide.util.ImageUtilities;
 import org.openide.util.NbPreferences;
 
