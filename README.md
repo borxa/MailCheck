@@ -7,7 +7,7 @@ This module add to Netbeans the beaviour of check IMAP mail secure server for ne
 
 It needs configuration in Netbeans Preferences Window -> Advanced -> MailCheck
 
-# Version 1.0
+## Version 1.0
 ----------------------------
 - Add notifications window
 - Add run application email button in notification details
