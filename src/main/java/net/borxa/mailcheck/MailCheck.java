@@ -4,7 +4,6 @@
  */
 package net.borxa.mailcheck;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -89,6 +88,6 @@ public class MailCheck extends ModuleInstall implements Runnable {
      */
     public static Map<Long, Notification> getNotificationHistory() {
         
-        return Collections.unmodifiableMap(notifications);
+        return notifications;
     }
 }
