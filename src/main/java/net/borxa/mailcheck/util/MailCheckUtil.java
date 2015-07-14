@@ -152,8 +152,11 @@ public class MailCheckUtil {
         boolean removed = false;
         Store store = null;
         Folder folder = null;
+        Notification notification = MailCheck.getNotificationHistory().get(messageId);
 
         try {
+            
+            notification.clear();
             
             String inboxFolderName = NbPreferences.forModule(MailCheck.class).get("mail_inbox_folder", "INBOX");
 
@@ -172,12 +175,12 @@ public class MailCheckUtil {
             trash.close(true);
             messageDeleted[0].setFlag(Flags.Flag.DELETED, true);
             
-            Notification notification = MailCheck.getNotificationHistory().remove(messageId);
-            notification.clear();
+            MailCheck.getNotificationHistory().remove(messageId);
             
             removed = true;
             
         } catch (MailCheckException | MessagingException ex) {
+            notification.notify();
             throw new MailCheckException(ex);
         } finally {
             service.closeConnection(store, folder, true);
